@@ -1,9 +1,15 @@
 pipeline{
     agent any
         stages{
-            stage('Check pipeline'){
+            stage('Install dependencies'){
                 steps{
-                    echo 'Pipeline detectado correctamente'
+                    sh 'npm install'
+                }
+            }
+
+            stage('Build'){
+                steps{
+                    sh 'npm run build'
                 }
             }
         }
