@@ -1,6 +1,6 @@
 pipeline{
         agent any 
-        
+
         stages{
 
             stage('Install dependencies'){
@@ -12,6 +12,7 @@ pipeline{
             stage('Build'){
                 steps{
                     sh 'npm run build'
+                    archiveArtifacts artifacts: 'build/**', fingerprint: true
                 }
             }
         }
