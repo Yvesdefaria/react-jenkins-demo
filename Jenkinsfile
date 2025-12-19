@@ -3,9 +3,21 @@ pipeline{
 
         stages{
 
+            stage('Checkout'){
+                steps{
+                    cheackout scm
+                }
+            }
+
             stage('Install dependencies'){
                 steps{
                     sh 'npm install'
+                }
+            }
+
+            stage('Test'){
+                steps{
+                    sh 'npm test -- --watchAll=false'
                 }
             }
 
